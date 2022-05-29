@@ -1,7 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, CommandInteraction } = require('discord.js');
-const moment = require('moment');
-
 
 module.exports = {
     data: new SlashCommandBuilder()
