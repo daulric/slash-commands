@@ -11,11 +11,11 @@ module.exports = {
                 .setDescription('The animal you want to send')
                 .addChoices(
                     {
-                        name: 'bullet hell',
+                        name: 'Bullet Hell 2',
                         value: 'bullethell'
                     },
                     {
-                        name: 'rotops',
+                        name: 'RoTops',
                         value: 'rotops'
                     },
                     {
