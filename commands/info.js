@@ -3,14 +3,14 @@ const { MessageEmbed, Interaction } = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('getuserinfo')
+    .setName('getinfo')
     .setDescription('Get information about a user')
     .addUserOption(option =>
         option
         .setName('member')
         .setDescription('Choose a member to get information about')
     ),
-
+    
     async execute (interaction) {
         const member = interaction.options.getMember("member")
         const activities = member.presence?.activities || []
