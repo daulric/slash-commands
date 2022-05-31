@@ -17,6 +17,10 @@ module.exports = {
                     {
                         name: 'rotops',
                         value: 'rotops'
+                    },
+                    {
+                        name: 'Bullet Hell Orginal',
+                        value: 'bullethellorg'
                     }
                 )
             ),
@@ -33,5 +37,8 @@ module.exports = {
             await interaction.reply({ content: 'https://www.roblox.com/games/8301773648' });
         }
 
+        if (choices === 'bullethellorg') {
+            await interaction.reply({ content: 'https://www.roblox.com/games/7354804006' });
+        } 
     }
 }
