@@ -10,26 +10,38 @@ module.exports = {
         .setName('member')
         .setDescription('Choose a member to get information about')
     ),
-    
+        
+     /**
+    * 
+    * @param {CommandInteraction} interaction 
+    */
+
+
     async execute (interaction) {
         const member = interaction.options.getMember("member")
-        const activities = member.presence?.activities || []
+        const serverInfo = interaction.options.getString("server")
 
-        const focusActivity = activities.find(x => x.assets)
+        if (member ) {  
+            const activities = member.presence?.activities || []
 
-        const embed = new MessageEmbed()
-        .setAuthor(member.user.tag, member.user.displayAvatarURL())
-        .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
-        .setThumbnail(member.user.displayAvatarURL())
-        .setDescription(activities.map((x, i) => `**${x.type}**: \`${x.name || "None"} : ${x.details || "None"} : ${x.state || "None"}\``).join("\n"))
-        .addField("JoinedAt", member.joinedAt.toLocaleString(), true)
-        .addField("Account Created At", member.user.createdAt.toLocaleString(), true)
-        .addField("Common Information", [
-            `Display Name: \`${member.displayName}\``,
-            `Pending Member: \`${member.pending ? 'Yes' : 'No'}\``,
-            `Booster: \`${member.premiumSince ? 'since ' + member.premiumSince.toLocaleString() : 'Nope'}\``
-        ].join("\n"))
+             const focusActivity = activities.find(x => x.assets)
 
-        await interaction.reply({embeds: [embed]})
-	},
+             const UserEmbed = new MessageEmbed()
+            .setAuthor(member.user.tag, member.user.displayAvatarURL())
+            .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
+            .setThumbnail(member.user.displayAvatarURL())
+            .setDescription(activities.map((x, i) => `**${x.type}**: \`${x.name || "None"} : ${x.details || "None"} : ${x.state || "None"}\``).join("\n"))
+            .addField("JoinedAt", member.joinedAt.toLocaleString(), true)
+            .addField("Account Created At", member.user.createdAt.toLocaleString(), true)
+            .addField("Common Information", [
+                `Display Name: \`${member.displayName}\``,
+                `Pending Member: \`${member.pending ? 'Yes' : 'No'}\``,
+                `Booster: \`${member.premiumSince ? 'since ' + member.premiumSince.toLocaleString() : 'Nope'}\``
+            ].join("\n"))
+
+            await interaction.reply({embeds: [UserEmbed]})
+        }
+       
+    }
+
 }
