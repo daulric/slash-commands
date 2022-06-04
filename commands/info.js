@@ -1,14 +1,15 @@
 const { SlashCommandBuilder } = require('@discordjs/builders')
-const { MessageEmbed, Interaction } = require('discord.js')
+const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('getinfo')
     .setDescription('Get information about a user')
-    .addUserOption(option =>
+    .addUserOption((option) =>
         option
         .setName('member')
         .setDescription('Choose a member to get information about')
+        .setRequired(true)
     ),
         
      /**
