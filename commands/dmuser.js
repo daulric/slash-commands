@@ -22,17 +22,8 @@ module.exports = {
     async execute (interaction) {
         const user = interaction.options.getUser("user")
         const message = interaction.options.getString("message")
-        if (!user) {
-            interaction.reply("You must specify a user to send a DM to")
-            return
-        }
-        if (!message) {
-            interaction.reply("You must specify a message to send")
-            return
-        }
-        if (user) {
-            await user.send(message)
-            await interaction.reply(`Sent a DM to ${user.tag}`)
-        }
+
+        await user.send(message)
+        await interaction.reply({ content: `Sent a DM to ${user.username}`, ephemeral: true })
     }
 }

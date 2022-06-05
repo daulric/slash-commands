@@ -12,7 +12,7 @@ const client = new Client({
 const dotenv = require('dotenv');
 dotenv.config();
 const TOKEN = process.env['TOKEN'];
-const GUILD_ID = process.env['GUILD_ID'];
+const GUILD_ID = null;
 /*   
 use const GUILD_ID = null  --- for global commands 
 */
