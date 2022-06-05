@@ -3,6 +3,21 @@ const {  REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 // Require the necessary discord.js classes
 const {  Client, Intents, Collection } = require('discord.js');
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('Bot is Up!');
+});
+
+
+app.listen(3000), () => {
+    console.log('Example app listening on port 3000!');
+}
+
+
+
 
 // Create a new client instance
 const client = new Client({
@@ -10,6 +25,7 @@ const client = new Client({
 });
 
 const dotenv = require('dotenv');
+const req = require('express/lib/request');
 dotenv.config();
 const TOKEN = process.env['TOKEN'];
 const GUILD_ID = null;
