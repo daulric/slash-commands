@@ -17,8 +17,6 @@ app.listen(3000), () => {
 }
 
 
-
-
 // Create a new client instance
 const client = new Client({
     intents: [Intents.FLAGS.GUILDS]
@@ -26,7 +24,7 @@ const client = new Client({
 
 const dotenv = require('dotenv');
 dotenv.config();
-const TOKEN = process.env['TOKEN'];
+const TOKEN = process.env.TOKEN;
 const GUILD_ID = null;
 /*   
 use const GUILD_ID = null  --- for global commands 
