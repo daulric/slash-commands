@@ -25,7 +25,6 @@ const client = new Client({
 });
 
 const dotenv = require('dotenv');
-const req = require('express/lib/request');
 dotenv.config();
 const TOKEN = process.env['TOKEN'];
 const GUILD_ID = null;
